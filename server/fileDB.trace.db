@@ -1,0 +1,4 @@
+2021-10-13 00:13:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FILES" not found; SQL statement:
+select * from files
+        where UUid = ? [42102-200]

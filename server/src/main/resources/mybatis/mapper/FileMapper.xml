@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.altria.fileserver.server.mapper.FileMapper">
+
+    <insert id="add" parameterType="MyFile">
+        insert into files values (#{UUid},#{size},#{type},#{fileName},#{buildTime},#{address})
+    </insert>
+
+    <select id="search" parameterType="string" resultType="MyFile">
+        select * from files
+        where UUid = #{param1}
+    </select>
+
+    <update id="createNewTable" >
+        CREATE TABLE IF NOT EXISTS files (
+          UUid varchar(40) NOT NULL,
+          size BIGINT,
+          type varchar(256),
+          fileName varchar(256),
+          buildTime varchar(30),
+          address varchar(max),
+          PRIMARY KEY (UUid))
+    </update>
+
+</mapper>
